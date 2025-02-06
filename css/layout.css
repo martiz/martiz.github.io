@@ -1,0 +1,24 @@
+a:hover {
+}
+a:link {
+}
+a:active {
+}
+a:visited {
+}
+body {
+  background: #999;
+  margin: 20% 10% 2em 10%;
+}
+div.content {
+  background: #ccc;
+  border: solid 1px #666;
+  color: #333;
+  font-family: georgia, serif;
+  font-style: italic;
+  padding: 2em;
+  text-align: center;
+}
+big {
+  font-size: 150%;
+}
