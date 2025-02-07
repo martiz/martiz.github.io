@@ -16,9 +16,20 @@ div.content {
   color: #333;
   font-family: georgia, serif;
   font-style: italic;
+  margin-bottom: 1em;
   padding: 2em;
   text-align: center;
 }
 big {
   font-size: 150%;
+}
+div.links {
+  background: #ccc;
+  border: solid 1px #666;
+  color: #333;
+  font-family: georgia, serif;
+  font-size: 80%;
+  margin-top: 1em;
+  padding: 1em;
+  text-align: center;	
 }
