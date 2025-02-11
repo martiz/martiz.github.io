@@ -1,11 +1,7 @@
-a:hover {
-}
-a:link {
-}
-a:active {
-}
-a:visited {
-}
+a:hover { }
+a:link { }
+a:active { }
+a:visited { }
 body {
   background: #999;
   margin: 20% 10% 2em 10%;
@@ -24,6 +20,24 @@ div.content {
 }
 big {
   font-size: 150%;
+  font-weight: bold;
+}
+small {
+  font-size: 80%;
+}
+sup {
+  font-size: 80%;
+}
+div.content a:link {
+  color: #333;
+  border: solid 1px #ccc;
+  border-top: 0px;
+}
+div.content a:hover, a:active { }
+div.content a:visited {
+  color: #666;
+  border: solid 1px #ccc;
+  border-top: 0px;
 }
 div.links {
   background: #ccc;
@@ -34,4 +48,8 @@ div.links {
   margin-top: 0.5em;
   padding: 1em;
   text-align: center;	
+}
+div.links a:link, a:hover, a:active, a:visited {
+  background: none;
+  border: none;
 }
