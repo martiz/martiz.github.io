@@ -12,7 +12,8 @@ body {
 }
 div.intro {
   background: #ccc;
-  border: solid 1px #666;
+  border: solid 4px #666;
+  border-bottom: dotted 2px #666;
   color: #333;
   font-family: georgia, serif;
   margin-bottom: 0.5em;
@@ -27,7 +28,9 @@ div.intro u {
 }
 div.content {
   background: #ccc;
-  border: solid 1px #666;
+  border: dotted 2px #666;
+  border-left: solid 4px #666;
+  border-right: solid 4px #666;
   color: #333;
   font-family: georgia, serif;
   font-style: italic;
@@ -58,7 +61,8 @@ div.content a:visited {
 }
 div.links {
   background: #ccc;
-  border: solid 1px #666;
+  border: solid 4px #666;
+  border-top: dotted 2px #666;
   color: #333;
   font-family: georgia, serif;
   font-size: 80%;
