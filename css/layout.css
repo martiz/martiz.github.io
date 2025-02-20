@@ -6,9 +6,9 @@ body {
   # background: #999;
   background-image: url("../img/bg_martiz.gif");
   background-repeat: repeat;
-  margin: 20% 10% 2em 10%;
-  padding-left: 25%;
-  padding-right: 25%;
+  margin: 3em 10% 2em 10%;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 div.intro {
   background: #ccc;
@@ -71,7 +71,7 @@ div.links {
   font-size: 80%;
   margin-top: 0.5em;
   padding: 1em;
-  text-align: center;	
+  text-align: right;	
 }
 div.links a:link, a:hover, a:active, a:visited {
   background: none;
