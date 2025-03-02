@@ -11,9 +11,13 @@ body {
   overflow: hidden; /* Hide content */
 }
 .sidebar-content {
-    padding: 20px;
-    white-space: nowrap; /* Prevent content from wrapping */
-    position: relative; /* Needed for absolute positioning of the hamburger */
+  padding: 20px;
+  padding-top: 10px;
+  white-space: nowrap; /* Prevent content from wrapping */
+  position: relative; /* Needed for absolute positioning of the hamburger */
+}
+.sidebar-content h2 {
+  padding-left: 60px;	
 }
 .hamburger {
   position: absolute;
