@@ -37,5 +37,12 @@ body {
 }
  .content {
   padding: 20px;
+  padding-top: 0;
   margin-left: 160px; /* Match sidebar width */
+}
+h1 u {
+  background: #ff9;
+  border: solid 1px #999;
+  padding-left: 2px;
+  text-decoration: none;
 }
