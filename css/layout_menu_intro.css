@@ -1,0 +1,80 @@
+/* Basic Styling & Hiding */
+.navigation {
+    position: relative; /* Context for absolute positioning if needed */
+  }
+  
+  .menu-toggle-input {
+    display: none; /* Hide the actual checkbox */
+  }
+  
+  .menu-toggle-label {
+    display: block; /* Or inline-block */
+    cursor: pointer;
+    /* Style your hamburger icon here */
+    width: 30px;
+    height: 25px;
+    position: relative; /* For positioning the lines */
+    /* Add padding/margin as needed */
+  }
+  
+  .menu-toggle-label span {
+    display: block;
+    background-color: #333;
+    height: 3px;
+    margin-bottom: 5px;
+    border-radius: 1px;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* For animation */
+  }
+  .menu-toggle-label span:last-child {
+    margin-bottom: 0;
+  }
+  
+  .main-menu {
+    display: none; /* Hide menu by default */
+    /* Or use other techniques like:
+       max-height: 0;
+       overflow: hidden;
+       transition: max-height 0.5s ease-out;
+       position: absolute;
+       left: -100%;
+       transition: left 0.3s ease;
+    */
+    /* Add menu styling (background, position, etc.) */
+    background-color: #f8f8f8;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+  }
+  
+  .main-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .main-menu li a {
+    display: block;
+    padding: 8px 0;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  /* The Magic: Show menu when checkbox is checked */
+  .menu-toggle-input:checked ~ .main-menu {
+    display: block;
+    /* Or adjust properties used for hiding:
+       max-height: 500px; /* Example value */
+    /* left: 0; */
+  }
+  
+  /* Optional: Animate hamburger to 'X' */
+  .menu-toggle-input:checked ~ .menu-toggle-label span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-toggle-input:checked ~ .menu-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle-input:checked ~ .menu-toggle-label span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
