@@ -44,15 +44,18 @@
   
   /* --- Toggle Button (Label) Styling --- */
   .sidebar-toggle-label {
-    /* Remove absolute positioning */
-    display: flex; /* Use flex to center hamburger */
+    display: flex;
+    /* Default: Center the icon horizontally within the label */
     justify-content: center;
-    align-items: center;
-    min-height: 60px; /* Give it some fixed height */
+    align-items: center; /* Center vertically */
+    min-height: 60px;
     cursor: pointer;
-    flex-shrink: 0; /* Prevent label from shrinking */
-    /* Add some padding if needed, e.g., padding: 15px 0; */
-  }
+    flex-shrink: 0;
+    padding: 0 20px; /* Add base horizontal padding */
+    /* Add transitions for smooth movement */
+    transition: justify-content var(--transition-speed) ease,
+                padding var(--transition-speed) ease;
+}
   
   /* Hamburger Icon Styling */
   .hamburger span {
@@ -126,7 +129,7 @@
   
   /* --- Sidebar State Logic (Checkbox Hack) --- */
   
-  /* Expanded State */
+  /* Expanded State (applies to both left/right) */
   .sidebar-toggle-input:checked ~ .sidebar {
     width: var(--sidebar-width-expanded);
   }
@@ -135,7 +138,22 @@
     opacity: 1;
     visibility: visible;
   }
-  
+
+/* == NEW: Reposition Toggle Icon when Expanded == */
+
+  /* Expanded Left Sidebar: Move icon RIGHT */
+  .app-container.sidebar-left .sidebar-toggle-input:checked ~ .sidebar .sidebar-toggle-label {
+    justify-content: flex-end; /* Align icon to the right */
+    /* padding-right: 20px; */ /* Use padding set above */
+  }
+
+  /* Expanded Right Sidebar: Move icon LEFT */
+  .app-container.sidebar-right .sidebar-toggle-input:checked ~ .sidebar .sidebar-toggle-label {
+    justify-content: flex-start; /* Align icon to the left */
+    /* padding-left: 20px; */ /* Use padding set above */
+  }
+/* ============================================= */
+
   /* Optional: Center toggle icon when expanded if desired */
   .sidebar-toggle-input:checked ~ .sidebar .sidebar-toggle-label {
     /* justify-content: flex-start; */ /* Align left */
