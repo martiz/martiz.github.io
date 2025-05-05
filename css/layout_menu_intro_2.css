@@ -1,0 +1,181 @@
+/* Basic Reset & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+  }
+  
+  /* CSS Variables */
+  :root {
+    --sidebar-width-collapsed: 70px;
+    --sidebar-width-expanded: 240px;
+    --sidebar-bg-color: #2c3e50;
+    --sidebar-text-color: #ecf0f1;
+    --sidebar-hover-bg: #34495e;
+    --toggle-button-color: #ecf0f1; /* Changed to match sidebar text */
+    --transition-speed: 0.3s;
+  }
+  
+  /* App Container using Flexbox */
+  .app-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Sidebar Styling */
+  .sidebar {
+    width: var(--sidebar-width-collapsed);
+    background-color: var(--sidebar-bg-color);
+    color: var(--sidebar-text-color);
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: width var(--transition-speed) ease;
+    position: relative;
+    flex-shrink: 0;
+    display: flex; /* Use flex column for label + nav */
+    flex-direction: column;
+  }
+  
+  /* --- Toggle Button (Label) Styling --- */
+  .sidebar-toggle-label {
+    /* Remove absolute positioning */
+    display: flex; /* Use flex to center hamburger */
+    justify-content: center;
+    align-items: center;
+    min-height: 60px; /* Give it some fixed height */
+    cursor: pointer;
+    flex-shrink: 0; /* Prevent label from shrinking */
+    /* Add some padding if needed, e.g., padding: 15px 0; */
+  }
+  
+  /* Hamburger Icon Styling */
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 3px;
+    margin-bottom: 4px;
+    background-color: var(--toggle-button-color); /* Use variable */
+    border-radius: 1px;
+    transition: transform var(--transition-speed) ease,
+      opacity var(--transition-speed) ease;
+  }
+  .hamburger span:last-child {
+    margin-bottom: 0;
+  }
+  /* --- End Toggle Button Styling --- */
+  
+  /* Navigation List Styling */
+  .sidebar nav {
+    flex-grow: 1; /* Allow nav to take remaining space */
+    overflow-y: auto; /* Allow nav scrolling if needed */
+  }
+  
+  .sidebar nav ul {
+    list-style: none;
+    /* Removed padding-top from here, handled by label height */
+  }
+  
+  .sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px; /* Adjust padding as needed */
+    color: var(--sidebar-text-color);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color var(--transition-speed) ease;
+  }
+  
+  .sidebar nav ul li a:hover {
+    background-color: var(--sidebar-hover-bg);
+  }
+  
+  .sidebar .icon {
+    font-size: 1.5em;
+    min-width: 30px; /* Aligns text when expanded */
+    text-align: center;
+    margin-right: 15px;
+    transition: margin-right var(--transition-speed) ease;
+  }
+  
+  .sidebar .nav-text {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-speed) ease,
+      visibility var(--transition-speed) ease;
+  }
+  
+  /* Main Content Area */
+  .main-content {
+    flex-grow: 1;
+    padding: 25px;
+    /* Removed position: relative as toggle is no longer here */
+    transition: margin-left var(--transition-speed) ease,
+      margin-right var(--transition-speed) ease;
+  }
+  
+  /* Hidden Checkbox */
+  .sidebar-toggle-input {
+    display: none;
+  }
+  
+  /* --- Sidebar State Logic (Checkbox Hack) --- */
+  
+  /* Expanded State */
+  .sidebar-toggle-input:checked ~ .sidebar {
+    width: var(--sidebar-width-expanded);
+  }
+  
+  .sidebar-toggle-input:checked ~ .sidebar .nav-text {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Optional: Center toggle icon when expanded if desired */
+  .sidebar-toggle-input:checked ~ .sidebar .sidebar-toggle-label {
+    /* justify-content: flex-start; */ /* Align left */
+    /* padding-left: 20px; */ /* Add padding */
+  }
+  
+  /* Animate Hamburger to 'X' when checked */
+  /* Selector path changed as label is now inside sidebar */
+  .sidebar-toggle-input:checked ~ .sidebar .sidebar-toggle-label .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .sidebar-toggle-input:checked ~ .sidebar .sidebar-toggle-label .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  .sidebar-toggle-input:checked ~ .sidebar .sidebar-toggle-label .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+  }
+  
+  /* --- Sidebar Position Logic --- */
+  
+  /* Default (Left Sidebar) */
+  .app-container.sidebar-left {
+    flex-direction: row;
+  }
+  /* Optional: Push main content when sidebar expands */
+  .app-container.sidebar-left .sidebar-toggle-input:checked ~ .main-content {
+    /* margin-left: calc(var(--sidebar-width-expanded) - var(--sidebar-width-collapsed)); */
+  }
+  
+  /* Right Sidebar */
+  .app-container.sidebar-right {
+    flex-direction: row-reverse;
+  }
+  /* Adjust icon margin for right sidebar */
+  .app-container.sidebar-right .sidebar .icon {
+    /* margin-left: 15px; */ /* If you want space on the other side */
+    /* margin-right: 0; */
+  }
+  /* Optional: Push main content when sidebar expands */
+  .app-container.sidebar-right .sidebar-toggle-input:checked ~ .main-content {
+    /* margin-right: calc(var(--sidebar-width-expanded) - var(--sidebar-width-collapsed)); */
+  }
+  

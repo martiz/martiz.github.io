@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collapsible Sidebar (Toggle Inside)</title>
+    <link rel="stylesheet" href="css/layout_menu_intro_2.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+  </head>
+  <body>
+    <!-- Add 'sidebar-left' or 'sidebar-right' class here -->
+    <div class="app-container sidebar-left">
+      <!-- Hidden Checkbox for Toggle (Keep BEFORE sidebar) -->
+      <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle-input" />
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <!-- == Hamburger Toggle Label MOVED INSIDE sidebar == -->
+        <label for="sidebar-toggle" class="sidebar-toggle-label">
+          <span class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </label>
+        <!-- ================================================ -->
+
+        <nav>
+          <ul>
+            <li>
+              <a href="#">
+                <span class="icon">🏠</span>
+                <!-- <i class="fas fa-home icon"></i> -->
+                <span class="nav-text">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="icon">📊</span>
+                <!-- <i class="fas fa-chart-bar icon"></i> -->
+                <span class="nav-text">Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="icon">⚙️</span>
+                <!-- <i class="fas fa-cog icon"></i> -->
+                <span class="nav-text">Settings</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="icon">👤</span>
+                <!-- <i class="fas fa-user icon"></i> -->
+                <span class="nav-text">Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="icon">❓</span>
+                <!-- <i class="fas fa-question-circle icon"></i> -->
+                <span class="nav-text">Help</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <h1>Main Content Area</h1>
+        <p>
+          This is where the primary content of your page will go. The sidebar
+          toggle is now inside the sidebar itself.
+        </p>
+        <!-- Add more content here -->
+      </main>
+    </div>
+  </body>
+</html>
