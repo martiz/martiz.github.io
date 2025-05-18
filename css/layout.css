@@ -20,7 +20,7 @@ div.intro {
   padding: 2em;
   text-align: center;
 }
-div.intro u {
+div.intro .underline {
   background: #ff9;
   border: solid 1px #999;
   padding-left: 2px;
@@ -38,11 +38,11 @@ div.content {
   padding: 2em;
   # text-align: center;
 }
-big {
+.big {
   font-size: 150%;
   font-weight: bold;
 }
-small {
+.small {
   font-size: 80%;
 }
 sup {
