@@ -64,16 +64,31 @@ div.content ul {
 }
 div.links {
   background: #ccc;
-  border: solid 4px #666;
-  border-top: dotted 2px #666;
+  border: dotted 2px #666;
+  border-left: solid 4px #666;
+  border-right: solid 4px #666;
   color: #333;
   font-family: georgia, serif;
   font-size: 80%;
-  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   padding: 1em;
-  text-align: right;	
+  text-align: right;
 }
 div.links a:link, a:hover, a:active, a:visited {
   background: none;
   border: none;
+}
+div.imprint {
+  background: #ccc;
+  border: solid 4px #666;
+  border-top: dotted 2px #666;
+  color: #333;
+  font-family: georgia, serif;
+  # font-size: 80%;
+  margin-top: 0.5em;
+  padding: 1em;
+  text-align: left;
+}
+.bold {
+  font-weight: bold;
 }
