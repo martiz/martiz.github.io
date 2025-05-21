@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>contact form - martin's zone</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/layout.css">
+</head>
+<body>
+
+  <!-- <h1>Contact Us</h1> -->
+
+  <div class="intro">
+	<span class="big">
+	  <span class="underline">con</span>tact
+	  <span class="underline">form</span>
+	</span>
+  </div>
+  <div class="content">
+    <p>
+      (Fields marked with an asterisk (*) are required.)<br>
+      <!-- Keep in mind: Without an e-mail address provided, I won't be able to respond unless I shall publish here. -->
+    </p>
+    <form action="/submit-form" method="post">
+      <div>
+        <label for="name">* Name:</label>
+        <input type="text" id="name" name="user_name" required autocomplete="name">
+      </div>
+
+      <div>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="user_email" required autocomplete="email">
+      </div>
+
+      <div>
+        <label for="subject">* Subject:</label>
+        <input type="text" id="subject" name="user_subject" required autocomplete="on">
+	  </div>
+
+	  <div>
+        <label for="subject_topic">* Topic:</label>
+        <select id="subject_topic" name="subject_topic_prefix" required>
+          <option value="" disabled selected>-- Select a topic --</option>
+          <option value="Bug Report">Bug Report</option>
+          <option value="Feature Suggestion">Feature Suggestion</option>
+          <option value="Partnership">Partnership</option>
+          <!-- <option value="Billing Inquiry">Billing Inquiry</option> -->
+          <option value="General Question">General Question</option>
+          <option value="Other">Other</option>
+        </select>
+   	  </div>
+
+      <div>
+        <label for="subject_custom">* Subject details (optional, max. 70 chars):</label>
+        <input type="text" id="subject_custom" name="subject_custom_suffix" maxlength="70" placeholder="e.g., Login page issue">
+      </div>
+
+      <!-- Hidden field to store the combined subject -->
+      <input type="hidden" id="user_subject_combined" name="user_subject">
+
+      <div>
+        <label for="message">* Message:</label>
+        <textarea id="message" name="user_message" rows="5" required></textarea>
+      </div>
+
+      <div>
+        <button type="submit">Send message</button>
+        <button type="reset">Reset form</button>
+        <button type="button" id="showHelpButton">Show help</button>
+		<div id="helpText" style="display:none;">This is some help text.</div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Get the form element by its ID
+    const contactForm = document.getElementById('contactForm');
+    // Get the select element for the main topic
+    const topicSelect = document.getElementById('subject_topic');
+    // Get the text input for custom subject details
+    const customSubjectInput = document.getElementById('subject_custom');
+    // Get the hidden input field that will store the combined subject
+    const combinedSubjectHiddenInput = document.getElementById('user_subject_combined');
+
+    // Add an event listener to the form that triggers just before submission
+    contactForm.addEventListener('submit', function(event) {
+      // Get the selected value from the topic dropdown
+      const topicValue = topicSelect.value;
+      // Get the value from the custom subject text input, trim whitespace
+      const customTextValue = customSubjectInput.value.trim();
+
+      // Initialize the combined subject with the topic value
+      let combinedSubject = topicValue;
+
+      // If there's custom text, append it to the topic value
+      if (customTextValue) {
+        combinedSubject += " - " + customTextValue; // Combine with a separator
+      }
+
+      // Set the value of the hidden input field to the combined subject
+      combinedSubjectHiddenInput.value = combinedSubject;
+
+      // The form will now submit, and the 'user_subject' field (our hidden input)
+      // will contain the combined subject line.
+      // The fields 'subject_topic_prefix' and 'subject_custom_suffix' will also be submitted,
+      // which can be useful as a fallback if JavaScript is disabled or for more detailed logging.
+    });
+
+    // Get the button element by its ID
+    const helpButton = document.getElementById('showHelpButton');
+    // Get the div element containing the help text
+    const helpTextDiv = document.getElementById('helpText');
+
+    // Add an event listener for the 'click' event on the button
+    helpButton.addEventListener('click', function() {
+      // Check the current display style of the help text div
+      if (helpTextDiv.style.display === 'none') {
+        // If it's hidden, make it visible (block display)
+        helpTextDiv.style.display = 'block';
+        // Change the button text to indicate it can now hide the help
+        helpButton.textContent = 'Hide Help';
+      } else {
+        // If it's visible, hide it
+        helpTextDiv.style.display = 'none';
+        // Change the button text back to its original state
+        helpButton.textContent = 'Show Help';
+      }
+    });
+    </script>
+
+</body>
+</html>
