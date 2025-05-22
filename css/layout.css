@@ -3,7 +3,7 @@ a:link { }
 a:active { }
 a:visited { }
 body {
-  # background: #999;
+  /* background: #999; */
   background-image: url("../img/bg_martiz.gif");
   background-repeat: repeat;
   margin: 3em 10% 2em 10%;
@@ -36,7 +36,7 @@ div.content {
   font-style: italic;
   margin-bottom: 0.5em;
   padding: 2em;
-  # text-align: center;
+  /* text-align: center; */
 }
 .big {
   font-size: 150%;
@@ -60,7 +60,7 @@ div.content a:visited {
   border-top: 0px;
 }
 div.content ul {
-  # margin-left: 3em;
+  /* margin-left: 3em; */
 }
 div.links {
   background: #ccc;
@@ -84,11 +84,16 @@ div.imprint {
   border-top: dotted 2px #666;
   color: #333;
   font-family: georgia, serif;
-  # font-size: 80%;
+  /* font-size: 80%; */
   margin-top: 0.5em;
   padding: 1em;
   text-align: left;
 }
 .bold {
   font-weight: bold;
+}
+label {
+  margin-right: 2em;
+  /* height: 100%; */
+  /* text-align: top; */
 }

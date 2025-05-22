@@ -25,44 +25,46 @@
     </p>
     <form action="/submit-form" method="post">
       <div>
-        <label for="name">* Name:</label>
+        <label for="name">Name: *</label>
         <input type="text" id="name" name="user_name" required autocomplete="name">
       </div>
 
       <div>
         <label for="email">E-mail:</label>
-        <input type="email" id="email" name="user_email" required autocomplete="email">
+        <input type="email" id="email" name="user_email" autocomplete="email">
+        (optional, unless you want a reply)
       </div>
 
       <div>
-        <label for="subject">* Subject:</label>
+        <label for="subject">Subject: *</label>
         <input type="text" id="subject" name="user_subject" required autocomplete="on">
 	  </div>
 
 	  <div>
-        <label for="subject_topic">* Topic:</label>
+        <label for="subject_topic">Topic: *</label>
         <select id="subject_topic" name="subject_topic_prefix" required>
           <option value="" disabled selected>-- Select a topic --</option>
-          <option value="Bug Report">Bug Report</option>
-          <option value="Feature Suggestion">Feature Suggestion</option>
+          <option value="Bug report">Bug report</option>
+          <option value="Feature suggestion">Feature suggestion</option>
           <option value="Partnership">Partnership</option>
-          <!-- <option value="Billing Inquiry">Billing Inquiry</option> -->
-          <option value="General Question">General Question</option>
+          <!-- <option value="Billing inquiry">Billing inquiry</option> -->
+          <option value="General question">General question</option>
           <option value="Other">Other</option>
         </select>
    	  </div>
 
       <div>
-        <label for="subject_custom">* Subject details (optional, max. 70 chars):</label>
+        <label for="subject_custom">Subject details:</label>
         <input type="text" id="subject_custom" name="subject_custom_suffix" maxlength="70" placeholder="e.g., Login page issue">
+         (optional, max. 70 chars)
       </div>
 
       <!-- Hidden field to store the combined subject -->
       <input type="hidden" id="user_subject_combined" name="user_subject">
 
       <div>
-        <label for="message">* Message:</label>
-        <textarea id="message" name="user_message" rows="5" required></textarea>
+        <label for="message">Message: *</label>
+        <textarea id="message" name="user_message" rows="8" required></textarea>
       </div>
 
       <div>
@@ -130,5 +132,8 @@
     });
     </script>
 
+  <div class="imprint">
+    <span class="bold">Imprint:</span> Martin N.
+  </div>
 </body>
 </html>
